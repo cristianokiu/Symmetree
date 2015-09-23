@@ -2,8 +2,8 @@ from datetime import datetime, timedelta
 
 
 class Node:
-    def __init__(self, parent = None, name = '', 
-            begin = None, spent = None):
+    def __init__(self, parent=None, name='',
+                 begin=None, spent=None):
         self.name = name
         self.children = []
         self.level = 0

@@ -17,13 +17,13 @@ class Serializer(metaclass=ABCMeta):
 
     @staticmethod
     def to_dict(node):
-        dic = { 'name': node.name,
-                'begin': node.begin.isoformat(),
-                'spent': node.spent.total_seconds() }
+        dic = {'name': node.name,
+               'begin': node.begin.isoformat(),
+               'spent': node.spent.total_seconds()}
 
         if node.children:
-            dic['children'] = [Serializer.to_dict(c) 
-                    for c in node.children]
+            dic['children'] = [Serializer.to_dict(c)
+                               for c in node.children]
 
         return dic
 
@@ -38,11 +38,11 @@ class MarkdownSerializer(Serializer):
 
     def deserialize(self, inpt):
         dom_root = parseString("<root>{0}</root>".
-                format(markdown(inpt))).firstChild
+                               format(markdown(inpt))).firstChild
 
         return self._parse_tree(dom_root)
 
-    def _parse_tree(self, dom_node, parent = None):
+    def _parse_tree(self, dom_node, parent=None):
         if dom_node.nodeType == dom_node.TEXT_NODE:
             return dom_node.data
 
@@ -62,7 +62,7 @@ class MarkdownSerializer(Serializer):
 class JSONSerializer(Serializer):
     def serialize(self, node, pretty=False):
         return json.dumps(Serializer.to_dict(node),
-                indent=2 if pretty else None)
+                          indent=2 if pretty else None)
 
     def deserialize(self, inpt):
         raise NotImplementedError()
