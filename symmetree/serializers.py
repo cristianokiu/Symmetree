@@ -29,12 +29,12 @@ class Serializer(metaclass=ABCMeta):
 
     @staticmethod
     def from_dict(dic):
-        raise NotImplemented()
+        raise NotImplementedError()
 
 
 class MarkdownSerializer(Serializer):
     def serialize(self, node):
-        raise NotImplemented()
+        raise NotImplementedError()
 
     def deserialize(self, inpt):
         dom_root = parseString("<root>{0}</root>".
@@ -65,4 +65,4 @@ class JSONSerializer(Serializer):
                 indent=2 if pretty else None)
 
     def deserialize(self, inpt):
-        raise NotImplemented()
+        raise NotImplementedError()
