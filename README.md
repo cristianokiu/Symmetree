@@ -1,4 +1,6 @@
 # Symmetree
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/pauloromeira/Symmetree/blob/master/LICENSE.md)
+
 Organize, balance and track your activities:
 
 1. **No more calendar**: just open the application and let it balance the tree.
